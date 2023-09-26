@@ -33,6 +33,34 @@ class Delivery:
 
     def __str__(self) -> str:
         return f'Entrega {self.tracking_code} - {self.status}'
+    
+    @staticmethod
+    def from_dict(self, data: dict):
+        delivery = Delivery()
+        delivery.tracking_code = data.get('tracking_code')
+        delivery.pickup_address = Address(**data.get('pickup_address')) if data.get('pickup_address') else None
+        delivery.delivery_address = Address(**data.get('delivery_address')) if data.get('delivery_address') else None
+        delivery.customer = Customer(**data.get('customer')) if data.get('customer') else None
+        delivery.package = Package(**data.get('package')) if data.get('package') else None
+
+        return delivery
+    
+    def to_dict(self) -> dict:
+        data = self.__dict__
+
+        if self.pickup_address:
+            data['pickup_address'] = self.pickup_address.__dict__
+
+        if self.delivery_address:
+            data['delivery_address'] = self.delivery_address.__dict__
+
+        if self.customer:
+            data['customer'] = self.customer.__dict__
+
+        if self.package:
+            data['package'] = self.package.__dict__
+
+        return data
 
 @dataclass
 class Quote:
