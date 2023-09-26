@@ -1,7 +1,30 @@
 from time import sleep
 from typing import List
-from actions.data.dtos.delivery import Delivery, Quote
+from actions.data.dtos.delivery import Delivery, Package, Quote
 
+SMALL_PACKAGE = Package(
+    weight=1,
+    width=10,
+    height=10,
+    depth=10,
+    value=100
+)
+
+MEDIUM_PACKAGE = Package(
+    weight=2,
+    width=20,
+    height=20,
+    depth=20,
+    value=200
+)
+
+LARGE_PACKAGE = Package(
+    weight=3,
+    width=30,
+    height=30,
+    depth=30,
+    value=300
+)
 
 class PlatformService():
     def __init__(self):
