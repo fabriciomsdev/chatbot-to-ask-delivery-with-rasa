@@ -2,17 +2,23 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: Pacote pequeno com agendamento
   steps:
   - intent: greet
-  - action: utter_greet
-
-# - story: sad path 1
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: mood_unhappy
-#   - action: utter_cheer_up
-#   - action: utter_did_that_help
-#   - intent: affirm
-#   - action: utter_happy
+  - action: utter_did_that_help
+  - intent: start_delivery_request
+  - action: start_delivery_request
+  - intent: add_pickup_point
+  - entities:
+    - address: "Rua das Flores, 123"
+  - action: save_pickup_address
+  - intent: add_delivery_point
+  - entities:
+    - address: "Rua do Vasco, 123"
+  - action: save_delivery_address
+  - intent: add_a_small_package
+  - action: utter_verify_small_package
+  - intent: schedule_a_delivery
+  - entities:
+    - time: "14 horas"
+  - action: schedule_delivery

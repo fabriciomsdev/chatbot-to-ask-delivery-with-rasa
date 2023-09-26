@@ -5,7 +5,7 @@ rules:
 - rule: Greet
   steps:
   - intent: greet
-  - action: utter_greet
+  - action: utter_did_that_help
 
 - rule: Say goodbye anytime the user says goodbye
   steps:

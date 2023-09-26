@@ -76,7 +76,7 @@ nlu:
     - discordo
 
 
-- intent: start_to_ask_a_delivery
+- intent: start_delivery_request
   examples: |
     - quero entregar um pedido
     - quero entregar um pedido agora
@@ -94,8 +94,21 @@ nlu:
 
 - intent: add_pickup_point
   examples: |
-    - quero adicionar um ponto de coleta
+    - colete na minha loja
+    - colete na [Praia do Flamengo, 12](address)
+    - colete na [Rua do catete, 100](address)
+    - colete na [Praça Barão do rio Branco, 220](address)
 
+
+- intent: schedule_a_delivery
+  examples: |
+    - entregue às [14 horas](time)
+    - entregue às [15 horas](time)
+    - entregue às [16 horas](time)
+    - entregue [dia 2 de dezembro as 8 horas](time)
+    - entregue [dia 12 de agosto as 9 horas](time)
+    - entregue [dia 10 de fevereiro as 10 horas](time)
+    - entregue daqui [20 minutos](time)
 
 - intent: add_delivery_point
   examples: |
@@ -116,6 +129,14 @@ nlu:
 - intent: schedule_a_delivery
   examples: |
     - quero agendar uma entrega
+
+- regex: address
+  examples: |
+    - \b\d{1,5}\s\w+(\s\w+)*,\s\w+(\s\w+)*,\s\w+(\s\w+)*,\s\d{5}\b
+    - \bRua\s*,\s*\d+\b
+    - \bAvenida\s*,\s*\d+\b
+    - \bPraça\s*,\s*\d+\b
+    - \bPraia\s*,\s*\d+\b
 
 # - intent: mood_great
 #   examples: |

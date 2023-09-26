@@ -5,13 +5,17 @@ intents:
   - goodbye
   - affirm
   - deny
-  - start_to_ask_a_delivery
+  - start_delivery_request
   - add_pickup_point
   - add_delivery_point
   - add_a_medium_package
   - add_a_big_package
   - add_a_small_package
   - schedule_a_delivery
+
+entities:
+  - address
+  - time
 
 responses:
   utter_greet:
@@ -20,11 +24,32 @@ responses:
   utter_did_that_help:
   - text: "Em que posso te ajudar hoje?"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_ask_pickup_point:
+  - text: "Qual o endereço de coleta?"
+
+  utter_ask_delivery_point:
+  - text: "Qual o endereço de entrega?"  
+
+  utter_verify_small_package:
+  - text: Seu pacote pesa menos que 50 Kgs?
+    buttons:
+    - title: Sim
+      payload: /add_a_small_package
+    - title: Não
+      payload: /add_a_medium_package
 
   utter_goodbye:
   - text: "Tchau"
+
+actions:
+  - start_delivery_request
+  - save_pickup_address
+  - save_delivery_address
+  - add_small_package
+  - add_medium_package
+  - add_big_package
+  - schedule_delivery
+  - start_delivery_operation
 
 session_config:
   session_expiration_time: 60
