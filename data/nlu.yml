@@ -3,89 +3,157 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - oi
+    - olá
+    - eai
+    - eae
+    - e aí
+    - e aê
+    - e aee
+    - e aei
+    - e aeu
+    - e aeo
+    - e aea
+    - tudo bem?
+    - tudo bom?
+    - tudo certo?
+    - tudo tranquilo?
+    - tudo joia?
+    - tudo suave?
+    - tudo beleza?
+    - tudo em cima?
+    - tudo em ordem?
+    - tudo na paz?
+    - tudo na boa?
+    - tudo na tranquilidade?
+    - tudo na suavidade?
+    - tudo na beleza?
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - tchau
+    - até mais
+    - até logo
+    - até a próxima
+    - até amanhã
+    - até breve
+    - até mais ver
+    - terminei
+    - acabou
+    - acabamos
+    - estou satisfeito
+    - estou satisfeita
+    - estou feliz
+    - estou feliz por hoje
 
 - intent: affirm
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - sim
+    - quero
+    - quero sim
+    - quero sim!
+    - quero sim.
+    - confirmo
+    - confirmo sim
+    - confirmo sim!
+    - certo
+    - ok
+    - ok!
+    - ok.
+    - ok sim
+    - eu quero
+    - eu quero sim
+    - concordo
 
 - intent: deny
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - não
+    - não quero
+    - não quero não
+    - não quero não!
+    - tem outra opção
+    - tem outra opção?
+    - discordo
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
 
-- intent: mood_unhappy
+- intent: start_to_ask_a_delivery
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - quero entregar um pedido
+    - quero entregar um pedido agora
+    - quero entregar um pedido hoje
+    - quero entregar um pedido amanhã
+    - que fazer uma entrega
+    - quero fazer uma entrega
+    - quero fazer uma entrega agora
+    - tenho que fazer uma entrega
+    - meu pedido está pronto
+    - meu pedido está pronto para entrega
+    - meu cliente precisa receber o pedido
+    - meu cliente precisa receber o pedido hoje
 
-- intent: bot_challenge
+
+- intent: add_pickup_point
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - quero adicionar um ponto de coleta
+
+
+- intent: add_delivery_point
+  examples: |
+    - quero adicionar um ponto de entrega   
+
+- intent: add_a_medium_package
+  examples: |
+    - meu pacote é médio   
+
+- intent: add_a_big_package
+  examples: |
+    - meu pacote é grande
+
+- intent: add_a_small_package
+  examples: |
+    - meu pacote é pequeno
+
+- intent: schedule_a_delivery
+  examples: |
+    - quero agendar uma entrega
+
+# - intent: mood_great
+#   examples: |
+#     - perfect
+#     - great
+#     - amazing
+#     - feeling like a king
+#     - wonderful
+#     - I am feeling very good
+#     - I am great
+#     - I am amazing
+#     - I am going to save the world
+#     - super stoked
+#     - extremely good
+#     - so so perfect
+#     - so good
+#     - so perfect
+
+# - intent: mood_unhappy
+#   examples: |
+#     - my day was horrible
+#     - I am sad
+#     - I don't feel very well
+#     - I am disappointed
+#     - super sad
+#     - I'm so sad
+#     - sad
+#     - very sad
+#     - unhappy
+#     - not good
+#     - not very good
+#     - extremly sad
+#     - so saad
+#     - so sad
+
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot?
+#     - are you a human?
+#     - am I talking to a bot?
+#     - am I talking to a human?

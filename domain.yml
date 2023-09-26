@@ -5,29 +5,26 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - start_to_ask_a_delivery
+  - add_pickup_point
+  - add_delivery_point
+  - add_a_medium_package
+  - add_a_big_package
+  - add_a_small_package
+  - schedule_a_delivery
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  - text: "Oi! Tudo bem com você? Em que posso te ajudar hoje?"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+  - text: "Em que posso te ajudar hoje?"
 
   utter_happy:
   - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "Tchau"
 
 session_config:
   session_expiration_time: 60
