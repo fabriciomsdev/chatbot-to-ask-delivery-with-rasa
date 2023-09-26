@@ -14,7 +14,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from actions.data.deliveries_repository import DeliveriesRespository
 
-from actions.data.dtos.delivery import Delivery, Package
+from actions.data.dtos.delivery import Address, Delivery, Package
+from actions.services.platform import MEDIUM_PACKAGE, SMALL_PACKAGE, PlatformService
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -73,7 +74,9 @@ class SavePickupAddress(Action):
         print('get_latest_entity_values', tracker.get_latest_entity_values("address"))
         print('get_slot', tracker.get_slot("address"))
         last_delivery = delivery_repository.get_last()
-        last_delivery.pickup_address = tracker.get_slot("address")
+        last_delivery.pickup_address = Address(
+            (tracker.latest_message)['text']
+        )
 
         logging.info("Save pickup address " + str(last_delivery))
 
@@ -98,7 +101,7 @@ class SaveDeliveryAddress(Action):
         print('get_latest_entity_values', tracker.get_latest_entity_values("address"))
         print('get_slot', tracker.get_slot("address"))
         last_delivery = delivery_repository.get_last()
-        last_delivery.delivery_address = tracker.get_slot("address")
+        last_delivery.delivery_address = Address((tracker.latest_message)['text'])
 
         logging.info("Save delivery address " + str(last_delivery))
 
@@ -108,7 +111,75 @@ class SaveDeliveryAddress(Action):
 
         return None
     
-class ScheduleDelivery(Action):
+
+class AddSmallPackage(Action):
+
+    def name(self) -> Text:
+        return "add_small_package"
+
+    def run(self, 
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]
+        ) -> List[Dict[Text, Any]]:
+
+        last_delivery = delivery_repository.get_last()
+        last_delivery.package = SMALL_PACKAGE
+
+        logging.info("Save package " + str(last_delivery))
+
+        delivery_repository.update(last_delivery.tracking_code, last_delivery)
+
+        dispatcher.utter_message(text="Quer entregar agora ou agendar?")
+
+        return None
+    
+
+class AddMediumPackage(Action):
+        def name(self) -> Text:
+            return "add_medium_package"
+    
+        def run(self, 
+                dispatcher: CollectingDispatcher,
+                tracker: Tracker,
+                domain: Dict[Text, Any]
+            ) -> List[Dict[Text, Any]]:
+    
+            last_delivery = delivery_repository.get_last()
+            last_delivery.package = MEDIUM_PACKAGE
+    
+            logging.info("Save package " + str(last_delivery))
+    
+            delivery_repository.update(last_delivery.tracking_code, last_delivery)
+    
+            dispatcher.utter_message(text="Quer entregar agora ou agendar?")
+    
+            return None
+        
+
+class AddLargePackage(Action):
+    def name(self) -> Text:
+        return "add_big_package"
+
+    def run(self, 
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]
+        ) -> List[Dict[Text, Any]]:
+
+        last_delivery = delivery_repository.get_last()
+        last_delivery.package = LARGE_PACKAGE
+
+        logging.info("Save package " + str(last_delivery))
+
+        delivery_repository.update(last_delivery.tracking_code, last_delivery)
+
+        dispatcher.utter_message(text="Quer entregar agora ou agendar?")
+
+        return None
+
+
+class SavePackageWeight(Action):
 
     def name(self) -> Text:
         return "save_package_weight"
@@ -161,5 +232,28 @@ class ScheduleDelivery(Action):
         delivery_repository.update(last_delivery.tracking_code, last_delivery)
 
         dispatcher.utter_message(text="Muito obrigado sua entrega foi agendada para " + last_delivery.scheduled_time)
+
+        return None
+    
+
+class AskDelivery(Action):
+
+    def name(self) -> Text:
+        return "ask_delivery"
+
+    def run(self, 
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]
+        ) -> List[Dict[Text, Any]]:
+        
+        last_delivery = delivery_repository.get_last()
+
+        logging.info("Asking Delivery " + str(last_delivery))
+        quotes = PlatformService().get_quote(last_delivery)
+
+        PlatformService().ask_delivery(quotes[0], last_delivery)
+
+        dispatcher.utter_message(text="O motorista está a caminho para coletar o seu pedido")
 
         return None

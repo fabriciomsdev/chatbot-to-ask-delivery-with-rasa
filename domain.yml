@@ -12,6 +12,7 @@ intents:
   - add_a_big_package
   - add_a_small_package
   - schedule_a_delivery
+  - start_delivery_operation
 
 entities:
   - address
@@ -50,6 +51,7 @@ actions:
   - add_big_package
   - schedule_delivery
   - start_delivery_operation
+  - ask_delivery
 
 session_config:
   session_expiration_time: 60

@@ -22,3 +22,107 @@ stories:
   - entities:
     - time: "14 horas"
   - action: schedule_delivery
+
+
+- story: Pacote medio com agendamento
+  steps:
+  - intent: greet
+  - action: utter_did_that_help
+  - intent: start_delivery_request
+  - action: start_delivery_request
+  - intent: add_pickup_point
+  - entities:
+    - address: "Rua das Flores, 123"
+  - action: save_pickup_address
+  - intent: add_delivery_point
+  - entities:
+    - address: "Rua do Vasco, 123"
+  - action: save_delivery_address
+  - intent: add_a_medium_package
+  - action: add_medium_package
+  - intent: schedule_a_delivery
+  - entities:
+    - time: "14 horas"
+  - action: schedule_delivery
+
+
+- story: Pacote grande com agendamento
+  steps:
+  - intent: greet
+  - action: utter_did_that_help
+  - intent: start_delivery_request
+  - action: start_delivery_request
+  - intent: add_pickup_point
+  - entities:
+    - address: "Rua das Flores, 123"
+  - action: save_pickup_address
+  - intent: add_delivery_point
+  - entities:
+    - address: "Rua do Vasco, 123"
+  - action: save_delivery_address
+  - intent: add_a_big_package
+  - action: add_big_package
+  - intent: schedule_a_delivery
+  - entities:
+    - time: "14 horas"
+  - action: schedule_delivery
+
+
+- story: Pacote pequeno sem agendamento
+  steps:
+  - intent: greet
+  - action: utter_did_that_help
+  - intent: start_delivery_request
+  - action: start_delivery_request
+  - intent: add_pickup_point
+  - entities:
+    - address: "Rua das Flores, 123"
+  - action: save_pickup_address
+  - intent: add_delivery_point
+  - entities:
+    - address: "Rua do Vasco, 123"
+  - action: save_delivery_address
+  - intent: add_a_small_package
+  - action: utter_verify_small_package
+  - intent: start_delivery_operation
+  - action: ask_delivery
+
+
+- story: Pacote medio com agendamento
+  steps:
+  - intent: greet
+  - action: utter_did_that_help
+  - intent: start_delivery_request
+  - action: start_delivery_request
+  - intent: add_pickup_point
+  - entities:
+    - address: "Rua das Flores, 123"
+  - action: save_pickup_address
+  - intent: add_delivery_point
+  - entities:
+    - address: "Rua do Vasco, 123"
+  - action: save_delivery_address
+  - intent: add_a_medium_package
+  - action: add_medium_package
+  - intent: start_delivery_operation
+  - action: ask_delivery
+
+
+- story: Pacote grande com agendamento
+  steps:
+  - intent: greet
+  - action: utter_did_that_help
+  - intent: start_delivery_request
+  - action: start_delivery_request
+  - intent: add_pickup_point
+  - entities:
+    - address: "Rua das Flores, 123"
+  - action: save_pickup_address
+  - intent: add_delivery_point
+  - entities:
+    - address: "Rua do Vasco, 123"
+  - action: save_delivery_address
+  - intent: add_a_big_package
+  - action: add_big_package
+  - intent: start_delivery_operation
+  - action: ask_delivery
