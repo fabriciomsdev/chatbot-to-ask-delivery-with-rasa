@@ -1,2 +1,5 @@
 venv
-.rasa
+.rasa/
+.rasa/*
+.rasa/**/*
+.rasa/cache
