@@ -32,11 +32,11 @@ stories:
   - action: start_delivery_request
   - intent: add_pickup_point
   - entities:
-    - address: "Rua das Flores, 123"
+    - address: "Avenida Amélia martins, 123"
   - action: save_pickup_address
   - intent: add_delivery_point
   - entities:
-    - address: "Rua do Vasco, 123"
+    - address: "Rua do Trote, 123"
   - action: save_delivery_address
   - intent: add_a_medium_package
   - action: add_medium_package
@@ -76,11 +76,11 @@ stories:
   - action: start_delivery_request
   - intent: add_pickup_point
   - entities:
-    - address: "Rua das Flores, 123"
+    - address: "Alameda da perdição, 123"
   - action: save_pickup_address
   - intent: add_delivery_point
   - entities:
-    - address: "Rua do Vasco, 123"
+    - address: "Rua das amarguras, 123"
   - action: save_delivery_address
   - intent: add_a_small_package
   - action: utter_verify_small_package
@@ -96,11 +96,11 @@ stories:
   - action: start_delivery_request
   - intent: add_pickup_point
   - entities:
-    - address: "Rua das Flores, 123"
+    - address: "Rua do catete, 123"
   - action: save_pickup_address
   - intent: add_delivery_point
   - entities:
-    - address: "Rua do Vasco, 123"
+    - address: "Rua do tumulo, 123"
   - action: save_delivery_address
   - intent: add_a_medium_package
   - action: add_medium_package
@@ -116,11 +116,11 @@ stories:
   - action: start_delivery_request
   - intent: add_pickup_point
   - entities:
-    - address: "Rua das Flores, 123"
+    - address: "Praça Valverde, 123"
   - action: save_pickup_address
   - intent: add_delivery_point
   - entities:
-    - address: "Rua do Vasco, 123"
+    - address: "Teatro castro alves"
   - action: save_delivery_address
   - intent: add_a_big_package
   - action: add_big_package
