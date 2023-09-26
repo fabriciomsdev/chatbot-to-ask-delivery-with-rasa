@@ -3,3 +3,6 @@ setup:
 
 train-model:
 	python3 -m rasa train
+
+run:
+	docker-compose up -d && rasa run -m models --enable-api --cors "*" --debug && rasa run actions --actions actions.actions --debug && rasa run shell
